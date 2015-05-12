@@ -18,7 +18,7 @@ var uglify = require('gulp-uglify');
 
 var o = {
   jsx: 'app/scripts/app.jsx',
-  scss: 'app/styles/main.scss',
+  scss: 'app/styles/*.scss',
   bundle: 'app.js',
   distJs: 'dist/app/js',
   distCss: 'dist/app/css'
@@ -29,7 +29,7 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('copy', function () {
-  return gulp.src(['app/index.html', 'app/index.js', 'package.json'])
+  return gulp.src(['app/index.html', 'app/index.js', 'package.json', 'app/bootstrap.js', 'config.json'])
     .pipe(gulp.dest('dist/app'));
 });
 
