@@ -1,0 +1,84 @@
+@import "bourbon";
+@import "neat";
+
+html, body {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(column);
+  font-size: 16px;
+  font-family: sans-serif;
+  background: #101010;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2rem 4rem rgba(black, .25);
+  color: white;
+  cursor: default;
+  // -webkit-font-smoothing: antialiased;
+}
+
+titlebar {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  -webkit-app-region: drag;
+  height: 3rem;
+  width: 100vw;
+  background: #222;
+  -webkit-user-select: none;
+  box-shadow: 0 1rem 3rem rgba(black, .25);
+
+  .title {
+    font-size: 1em;
+    font-weight: normal;
+  }
+}
+
+banner {
+  @include transition(ease 160ms background);
+  -webkit-app-region: no-drag;
+  cursor: default;
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: inline-block;
+  background: tomato;
+  padding: .25rem 1rem;
+  font-size: .75em;
+  text-shadow: 0 1px 2px rgba(black, .5);
+
+  &:hover {
+    background: lighten(tomato, 5%);
+  }
+}
+
+window-controls {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+.window-control {
+  @include transition(ease 160ms background);
+  box-shadow: inset 0 0 0 1px rgba(black, .5);
+  display: inline-block;
+  height: .813rem;
+  width: .813rem;
+  background: rgba(white, .5);
+  border-radius: .813rem;
+  margin-right: .5rem;
+
+  &.close {
+    background: rgba(tomato, .8);
+    &:hover {background: rgba(tomato, 1);}
+  }
+
+  &.min {
+    background: rgba(#e8cb5c, .8);
+    &:hover { background: rgba(#e8cb5c, 1); }
+  }
+
+  &.max {
+    background: rgba(#4fda6b, .8);
+    &:hover { background: rgba(#4fda6b, 1); }
+  }
+}
